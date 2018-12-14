@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Page Title</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+      
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+  <div class="container">
+    
+     <div class="card bg-light width:300px;">
+        <div class="card-body text-center">
+              <a [routerLink]="['/pets']">Home</a>
+              <h2>Details about {{pet.name}}</h2>
+              <p><b>Pet type:</b> {{pet.pettype}}</p>
+               <p><b>Description:</b> {{pet.desc}}</p>
+                <p><b>Skills:</b> {{pet.skillZero}}, {{pet.skillOne}}, {{pet.skillTwo}}</p>
+                 <p><b>Likes:</b> {{pet.like}}</p>
+              
+                 <hr>
+                  <button [disabled]="isValid" (click)="likeMe(pet._id,pet,1)"  class="btn btn-outline-success">Likes</button>
+                  <button (click)="deleteOnClick(pet._id)" class="btn btn-outline-danger ml-2">Delete</button>
+                  <!-- (click)="likeMe(pet._id,pet,1)" (click)="increment(1)" -->
+        </div>
+      </div>
+     <router-outlet></router-outlet>
+  </div>
+</body>
+</html>

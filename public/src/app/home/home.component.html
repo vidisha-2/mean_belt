@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Pets</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+      
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+  <div class="container">
+    <hr>
+    <h3>These pets are looking for a home!</h3>
+   <a [routerLink]="['/new']" style="margin-right:20px;">Add a pet to the shelter</a> 
+    <hr>
+
+      <div class='table'>
+				<table class='table table-bordered table-hover mt-5'>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor='let pet of pets'>
+                <td>{{pet.name}}</td>
+                <td>{{pet.pettype}}</td>
+                <td><button (click)="sendToView(pet._id)" class="btn btn-outline-secondary">View Reviews</button><button (click)="sendToEdit(pet._id)" class="btn btn-outline-secondary ml-2">Edit</button></td>
+              </tr>
+            </tbody>
+				</table>
+        </div>
+   
+    <router-outlet></router-outlet>
+  </div>
+</body>
+</html>

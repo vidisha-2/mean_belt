@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>Page Title</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+      
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+  <div class="container">
+    <div class="card bg-light width:300px;">
+      <div class="card-body text-center">
+            <a [routerLink]="['/pets']">Home</a>
+            <h2>Edit this pet</h2>
+            
+            <form (submit)="modifyPet()" class="form-group">
+              <p *ngIf="name.errors"><span style="color:darkblue">The pet name must be contain 3 characters long.</span> </p>
+              <p *ngIf="pettype.errors"><span style="color:darkblue">The pet type name must be contain 3 characters long.</span> </p>
+               <p *ngIf="desc.errors"><span style="color:darkblue">The pet description name must be contain 3 characters long.</span> </p>
+              <label>Pet Name:</label>
+              <input
+              type="text" 
+              class="form-control"
+              name="pet.name"
+              required
+              minlength="3"
+              maxlength="20"
+              [(ngModel)]="pet.name"
+              #name="ngModel"/>
+              <label>Pet type:</label>
+              <input
+              type="text" 
+              class="form-control"
+              name="pet.pettype"
+              required
+              minlength="3"
+              maxlength="20"
+              [(ngModel)]="pet.pettype"
+              #pettype="ngModel"/>
+               <label>Description:</label>
+              <input
+              type="text" 
+              class="form-control"
+              name="pet.desc"
+              required
+              minlength="3"
+              maxlength="20"
+              [(ngModel)]="pet.desc"
+              #desc="ngModel"/>
+              <label>Skills(Optional):</label>
+              <label>Skill 1:</label>
+               <input
+              type="text" 
+              class="form-control"
+              name="pet.skillZero"
+              [(ngModel)]="pet.skillZero"/>
+              <label>Skill 2:</label>
+               <input
+              type="text" 
+              class="form-control"
+              name="pet.skillOne"
+              [(ngModel)]="pet.skillOne"/>
+              <label>Skill 3:</label>
+               <input
+              type="text" 
+              class="form-control"
+              name="pet.skillTwo"
+              [(ngModel)]="pet.skillTwo"/>
+              <input type="submit" value="Add pet" class="btn btn-outline-secondary">
+              <button [routerLink]="['/pets']" class="btn btn-outline-secondary">Cancel</button>
+              <!-- <input (click)="createAu($event)" type="submit" value="Submit" class="btn"> -->
+              <br>
+              <!-- <small *ngIf="errors"><span style="color:red">{{ errors.name.message }} ||{{ errors.pettype.message }} || {{ errors.desc.message }}</span></small> -->
+             
+            </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
